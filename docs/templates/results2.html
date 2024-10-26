@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>FAKE NEWS MACHINE LEARNING</title>
+
+
+        <!-- PT SANS FONT -->
+    
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=Montaga&family=Montserrat:wght@100;300;400;500;600;700;800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+        <!-- Material Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+        
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="../static/styles.css">
+    </head>
+    <body>
+        <div class="hero-image">
+            <div class="hero-text">
+                <h1>FAKE NEWS MACHINE LEARNING</h1>
+                <!-- <h3>Results Model #2</h3> -->
+                 <p>PROJECT 4</p>
+            </div>
+        </div>
+        <div class="grid-container">
+
+            <!-- Sidebar -->
+            <aside id="sidebar">
+                <div class="sidebar-title">
+                    <div class="sidebar-brand">
+                        <span class="material-icons-outlined">inventory</span>FAKE NEWS 
+                    </div>
+                    <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+                </div>
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">dashboard</span>
+                        <a href="home.html">DASHBOARD</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">fact_check</span>
+                        <a href="common.html">Most Common Words</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">menu_book</span>
+                        <a href="article.html">Original Data Set</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">menu_book</span>
+                        <a href="articles.html">Cleaned Data Set</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">vertical_align_top</span>
+                        <a href="results1.html">Model Results #1</a>
+                    </li>
+                     <li class="sidebar-list-item-current">
+                        <span class="material-icons-outlined">vertical_align_top</span>
+                        <a href="results2.html">Model Results #2</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">vertical_align_top</span>
+                        <a href="results3.html">Model Results #3</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">poll</span>
+                        <a href="resources.html">Resources</a>
+                    </li>
+                </ul>
+                <br></br>
+                <ul class="member-list">
+                    <p class="member-list-item">TEAM MEMBERS</p>
+                    <li class="member-list-item">Bruce Chang</li>
+                    <li class="member-list-item">Haithem Elmesallati</li>
+                    <li class="member-list-item">Jonathan Rico</li>
+                    <li class="member-list-item">Tuan Hoang</li>
+                    <li class="member-list-item">Ivan Villa</li>
+                    <li class="member-list-item">Vincent Passanisi</li>
+            </aside>
+            <!-- End Sidebar -->
+
+            <!-- Main -->
+            <main class="main-container">
+                <div class="main-title">
+                  <p class="font-weight-bold">Results Model #2 - Linear Support Vector</p>  
+                </div>
+                
+                <div class="text-card">
+                  <div class="text-container">
+                    <p>
+                      For the fake news detection analysis, we use Pandas to read in our data (in the form of a csv file) and transform it into a dataframe. From there, we separate our desired test feature (`cleaned_text` for two of the tests and `cleaned_title` for the other tests) column from the dataframe and assign it into a variable, as well as assign a variable to the target column (which determines whether an article is real `0` or fake `1`). Using sklearn's train_test_split feature, we create our training and test data for the models.
+                    </p>
+                    <p></p><p>
+                      Since we are testing on words used in each article, we use sklearn's TdifVectorizer feature, which measures the originality of a word by comparing the number of times a word appears in document with the number of documents the word appears in (document in this case would refer to the feature we are currently testing). TdifVectorizer works by looking at the frequency of each word, but not the context in which it is used, adding more emphasis on less frequently used words, to avoid overly emphasizing commonly used words such as `the`.
+                    </p><p>
+                      Once our data is vectorized for each feature we are testing on, we can fit our data into our models. And finally we can view our models' performance using scikit learn's classification report feature, as well as check the prediction results (true positives/negatives, false positive/negatives) from each model. 
+                      Our classification report gives us each model's stats as:
+                    </p>
+                      <li class="list-item"><b>Precision</b> - The ratio of True Positives/(True Positives+False Positives)</li>
+                      <br>
+                      <li class="list-item"><b>Recall</b> - The ratio True Positives/(True Positives+False Negatives)</li>
+                      <br>
+                      <li class="list-item"><b> F1 score</b> - F1 is an average of the sum of both the recall and precision score, it represents the accuracy of our model</li>
+                      <br>
+                      <li class="list-item"><b>Support</b> - Support is the number of actual occurrences of the class in the dataset (our testing data). It does not vary between models, it just diagnoses the performance evaluation process.</li>
+                      </p>
+                  </div>
+                </div>
+                <br>
+
+            <main class="main-container">
+                <div class="main-title">
+                  <p class="font-weight-bold">LSV Model Results</p>  
+                </div>
+                
+                <div class="text-card">
+                  <div class="text-container">
+                    <p>
+                        After running the linear support vector classifier model on our dataset and making predictions on our testing data, the model was able to categorize which articles were real or fake with a 98% overall accuracy.
+                    </p><p>
+                        Out of the 12,809 test news articles (6,125 real news and 6,684 fake news),
+                        our model correctly predicted that 6,051 of the articles were real and 6,490 of the articles were fake. The model incorrectly categorized 177 real articles as fake news and 91 fake articles as real news.
+                        The model's precision for predicting real articles was 98%, while its precision for predicting fake news was 97%. Our model's recall values were 97% for real news and 99% for fake news.
+                        Overall, the model was equally effective at predicting both fake news and real news, with both categories having a F1 score of 98%.</p>
+                  </div>
+                </div>
+                <br>
+
+                <div class="main-title">
+                  <p class="font-weight-bold">Confusion Matrix</p>  
+                </div>
+                  <div class="text-card">
+                    <div class="image-container">
+                    <img src="../static/confuse2.png" alt="My Image"/>
+                    </div>
+                  </div>
+                <br>
+                <br>
+
+                <div class="main-title">
+                  <p class="font-weight-bold">Classification Report</p>  
+                </div>
+                <table width="1700" height="400" border="1" cellpadding="10">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Precision</th>
+                        <th>Recall</th>
+                        <th>F1-score</th>
+                        <th>Support</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>0</td>
+                        <td>0.98</td>
+                        <td>0.97</td>
+                        <td>0.98</td>
+                        <td>6211</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>0.97</td>
+                        <td>0.98</td>
+                        <td>0.98</td>
+                        <td>6598</td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">Accuracy</td>
+                        <td>0.98</td>
+                        <td>12809</td>
+                      </tr>
+                      <tr>
+                        <td colspan="1">Macro Avg</td>
+                        <td>0.98</td>
+                        <td>0.98</td>
+                        <td>0.98</td>
+                        <td>12809</td>
+                      </tr>
+                      <tr>
+                        <td colspan="1">Weighted Avg</td>
+                        <td>0.98</td>
+                        <td>0.98</td>
+                        <td>0.98</td>
+                        <td>12809</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                <main class="main-container">
+                <div class="main-title">
+                  <p class="font-weight-bold">LVS Model Results - Using Titles</p>  
+                </div>
+                
+                <div class="text-card">
+                  <div class="text-container">
+                    <p>
+                      After adapting our linear support vector classifier model to make predictions on our testing data based on the articles' titles, the model was able to categorize which articles were real or fake with a 91% overall accuracy accuracy. Out of the 12,809 test news articles (6,092 real news and 6,717 fake news), our model correctly predicted that 5,553 of the articles were real and 6,148 of the articles were fake. The model incorrectly categorized 548 real articles as fake news and 560 fake articles as real news. The model's precision for predicting real articles was 91%, while its precision for predicting fake news was 92%. Our model's recall values were 91% for real news and 91% for fake news. The F1 score for real news was 91%, while fake news had a score of 92%.
+                    </p><p>
+                      Based on these results, we can see that making predictions based on a new's article's body of text is more effective when compared to its title, due to a larger sample size of words that our vectorizer model can take in. Even with the disparity in the amount of words analyzed by the linear SVC model when testing each of the article's features, it was able to predictions with accuracy greater than 90%.</p>
+                  </div>
+                <br>
+
+                <div class="main-title">
+                  <p class="font-weight-bold">LSV on Titles - Confusion Matrix</p>  
+                </div>
+                  <div class="text-card">
+                    <div class="image-container">
+                    <img src="../static/LVS_titles.png" alt="My Image"/>
+                    </div>
+                  </div>
+                <br>
+                <br>
+
+                <div class="main-title">
+                  <p class="font-weight-bold">LSV on Titles - Classification Report</p>  
+                </div>
+                <table width="1700" height="400" border="1" cellpadding="10">
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Precision</th>
+                        <th>Recall</th>
+                        <th>F1-score</th>
+                        <th>Support</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>0</td>
+                        <td>0.91</td>
+                        <td>0.91</td>
+                        <td>0.91</td>
+                        <td>6113</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>0.92</td>
+                        <td>0.92</td>
+                        <td>0.92</td>
+                        <td>6598</td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">Accuracy</td>
+                        <td>0.91</td>
+                        <td>12809</td>
+                      </tr>
+                      <tr>
+                        <td colspan="1">Macro Avg</td>
+                        <td>0.91</td>
+                        <td>0.91</td>
+                        <td>0.91</td>
+                        <td>12809</td>
+                      </tr>
+                      <tr>
+                        <td colspan="1">Weighted Avg</td>
+                        <td>0.91</td>
+                        <td>0.91</td>
+                        <td>0.91</td>
+                        <td>12809</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                    </div>
+
+                </div>
+            
+            </main>
+            <!-- End Main-->
+            </div>
+            <!-- Scripts -->
+            <!-- ApexCharts  -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.37.2/apexcharts.min.js"></script>
+        <!-- Custom JS -->
+        <script src="../static/scripts.js"></script>
+    </body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>FAKE NEWS MACHINE LEARNING</title>
+
+
+        <!-- PT SANS FONT -->
+    
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=Montaga&family=Montserrat:wght@100;300;400;500;600;700;800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+        <!-- Material Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+        
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="../static/styles.css">
+    </head>
+    <body>
+        <div class="hero-image">
+            <div class="hero-text">
+                <h1>FAKE NEWS MACHINE LEARNING</h1>
+                <!-- <h3>Results Model #3 - Keras</h3> -->
+                 <p>PROJECT 4</p>
+            </div>
+        </div>
+        <div class="grid-container">
+
+            <!-- Sidebar -->
+            <aside id="sidebar">
+                <div class="sidebar-title">
+                    <div class="sidebar-brand">
+                        <span class="material-icons-outlined">inventory</span>FAKE NEWS 
+                    </div>
+                    <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+                </div>
+                
+                <ul class="sidebar-list">
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">dashboard</span>
+                        <a href="home.html">DASHBOARD</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">fact_check</span>
+                        <a href="common.html">Most Common Words</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">menu_book</span>
+                        <a href="article.html">Original Data Set</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">menu_book</span>
+                        <a href="articles.html">Cleaned Data Set</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">vertical_align_top</span>
+                        <a href="results1.html">Model Results #1</a>
+                    </li>
+                     <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">vertical_align_top</span>
+                        <a href="results2.html">Model Results #2</a>
+                    </li>
+                    <li class="sidebar-list-item-current">
+                        <span class="material-icons-outlined">vertical_align_top</span>
+                        <a href="results3.html">Model Results #3</a>
+                    </li>
+                    <li class="sidebar-list-item">
+                        <span class="material-icons-outlined">poll</span>
+                        <a href="resources.html">Resources</a>
+                    </li>
+                </ul>
+                <br></br>
+                <ul class="member-list">
+                    <p class="member-list-item">TEAM MEMBERS</p>
+                    <li class="member-list-item">Bruce Chang</li>
+                    <li class="member-list-item">Haithem Elmesallati</li>
+                    <li class="member-list-item">Jonathan Rico</li>
+                    <li class="member-list-item">Tuan Hoang</li>
+                    <li class="member-list-item">Ivan Villa</li>
+                    <li class="member-list-item">Vincent Passanisi</li>
+            </aside>
+            <!-- End Sidebar -->
+
+            <!-- Main -->
+            <main class="main-container">
+                <div class="main-title">
+                  <p class="font-weight-bold">Results Model #3 - Keras-BERT (Bidirectional Encoder Representations from Transformers)</p>  
+                </div>
+                <br>
+
+                <div class="text-card">
+                  <div class="text-container">
+                    <p>BERT stands for Bidirectional Encoder Representations from Transformers. BERT was created by Google AI Language researchers for use in Natural Language Processing (NLP). One of the main benefits of using BERT for NLP is that it learns contextual relationships from words both to the left and right of a word. This differs from directional models which read text in a specific direction (i.e., left to right).
+                      BERT models come in different sizes (configurations of layers and specifications) that can be matched to the size of the data set and the desired speed and computing power required for classification. These models come pre-trained on text from Wikipedia and are fine-tuned based on the training data introduced and the use of an optimizer.
+                    </p>
+                  </div>
+                </div>
+                <br>
+                <div class="main-title">
+                  <p class="font-weight-bold">BERT Model Summary</p>  
+                </div>
+                <br>
+                <div class="text-card">
+                  <div class="text-container">
+                    <p>For the classification of Fake News, the most efficient model was the smallest of the TensorFlow Small BERT group of models. It uses L=2 hidden layers (i.e., Transformer blocks), a hidden size of H=128, and A=2 attention heads. Using our expanded dataset, this produced a high accuracy at the minimal amount of training time and computing resources.
+                    </p>
+                  </div>
+                </div>
+                <br>
+                <style>
+                  table {
+                    width: 100%;
+                    border-collapse: collapse;
+                  }
+                  
+                  th, td {
+                    text-align: left;
+                    padding: 8px;
+                    border: 1px solid #ddd;
+                  }
+                  
+                  th {
+                    background-color: #f2f2f2;
+                  }
+                  </style>
+                  
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Layer (type)</th>
+                        <th>Output Shape</th>
+                        <th>Param #</th>
+                        <th>Connected to</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>input_1 (InputLayer)</td>
+                        <td>[(None,)]</td>
+                        <td>0</td>
+                        <td>[]</td>
+                      </tr>
+                      <tr>
+                        <td>keras_layer (KerasLayer)</td>
+                        <td>{'input_mask': (None, 128), 'input_word_ids': (None, 128), 'input_type_ids': (None, 128)}</td>
+                        <td>0</td>
+                        <td>['input_1[0][0]']</td>
+                      </tr>
+                      <tr>
+                        <td>keras_layer_1 (KerasLayer)</td>
+                        <td>{'default': (None, 128), 'encoder_outputs': [(None, 128, 128), (None, 128, 128)], 'pooled_output': (None, 128), 'sequence_output': (None, 128, 128)}</td>
+                        <td>4,385,921</td>
+                        <td>['keras_layer[0][0]', 'keras_layer[0][1]', 'keras_layer[0][2]']</td>
+                      </tr>
+                      <tr>
+                        <td>classifier (Dense)</td>
+                        <td>(None, 1)</td>
+                        <td>129</td>
+                        <td>['keras_layer_1[0][3]']</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>Total params</td>
+                        <td>4,386,050</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>Trainable params</td>
+                        <td>4,386,049</td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td>Non-trainable params</td>
+                        <td>1</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table> 
+                  
+                  <div class="main-title">
+                    <p class="font-weight-bold">Results of training and testing model</p>  
+                  </div>
+  
+                  <div class="text-card">
+                    <div class="text-container">
+                      <p>Ivan's text goes here.
+                      </p>
+                    </div>
+                  </div>
+  
+                    <div class="text-card">
+                      <div class="image-container">
+                      <img src="../static/bert_acc_graph.png" alt="My Image"/>
+                      </div>
+                    </div>
+                    <br>
+
+                    <div class="main-title">
+                      <p class="font-weight-bold">BERT Model Confusion Matrix</p>  
+                    </div>
+    
+                    <div class="text-card">
+                      <div class="text-container">
+                        <p>The model resulted in 5,732 true positives, and 6,267 true negatives. False positives were 184, and false negatives 458.
+                        </p>
+                      </div>
+                    </div>
+    
+                      <div class="text-card">
+                        <div class="image-container">
+                        <img src="../static/bertCM.png" alt="My Image"/>
+                        </div>
+                      </div>
+
+                  <div class="main-title">
+                    <p class="font-weight-bold">Classification Report</p>  
+                  </div>
+  
+                  <div class="text-card">
+                    <div class="text-container">
+                      <p>The model accuracy was 95% indicating that it contains more power to confirm the hypothesis about the disparity between fake and real news.
+                      </p>
+                    </div>
+                  </div>
+  
+                  <table width="1700" height="400" border="1" cellpadding="10">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>Precision</th>
+                          <th>Recall</th>
+                          <th>F1-score</th>
+                          <th>Support</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>0</td>
+                          <td>0.97</td>
+                          <td>0.93</td>
+                          <td>0.95</td>
+                          <td>6190</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>0.94</td>
+                          <td>0.98</td>
+                          <td>0.96</td>
+                          <td>6451</td>
+                        </tr>
+                        <tr>
+                          <td colspan="3">Accuracy</td>
+                          <td>0.95</td>
+                          <td>12641</td>
+                        </tr>
+                        <tr>
+                          <td colspan="1">Macro Avg</td>
+                          <td>0.96</td>
+                          <td>0.95</td>
+                          <td>0.95</td>
+                          <td>12641</td>
+                        </tr>
+                        <tr>
+                          <td colspan="1">Weighted Avg</td>
+                          <td>0.96</td>
+                          <td>0.95</td>
+                          <td>0.95</td>
+                          <td>12641</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <br>      
+            </main>
+            <!-- End Main-->
+            </div>
+            <!-- Scripts -->
+            <!-- ApexCharts  -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.37.2/apexcharts.min.js"></script>
+        <!-- Custom JS -->
+        <script src="../static/scripts.js"></script>
+    </body>
+</html>
